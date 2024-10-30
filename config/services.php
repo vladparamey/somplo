@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'rozetka' => [
+        'promo_url' => 'https://rozetka.com.ua/news-articles-promotions/promotions/',
+    ],
+
 ];
