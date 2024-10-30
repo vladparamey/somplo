@@ -15,9 +15,6 @@ class SellerFactory extends Factory
      */
     protected $model = Seller::class;
 
-    /**
-     * @return array
-     */
     public function definition(): array
     {
         return [

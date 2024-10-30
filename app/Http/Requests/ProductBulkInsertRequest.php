@@ -32,9 +32,6 @@ class ProductBulkInsertRequest extends FormRequest
         ];
     }
 
-    /**
-     * @return array
-     */
     public function dataValidated(): array
     {
         return $this->validated()['products'];

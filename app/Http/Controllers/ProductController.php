@@ -14,25 +14,14 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ProductController extends Controller
 {
-    /**
-     * @var ProductServiceInterface $productService
-     */
     private ProductServiceInterface $productService;
 
-    /**
-     * @param ProductServiceInterface $productService
-     */
     public function __construct(
         ProductServiceInterface $productService
-    )
-    {
+    ) {
         $this->productService = $productService;
     }
 
-    /**
-     * @param ProductSetDataRequest $request
-     * @return JsonResponse
-     */
     public function setData(ProductSetDataRequest $request): JsonResponse
     {
         $data = $request->validated();
@@ -44,10 +33,6 @@ class ProductController extends Controller
             ->setStatusCode(Response::HTTP_CREATED);
     }
 
-    /**
-     * @param ProductUpdateDataBulkRequest $request
-     * @return JsonResponse
-     */
     public function updateDataBulk(ProductUpdateDataBulkRequest $request): JsonResponse
     {
         $data = $request->validated();
@@ -57,11 +42,6 @@ class ProductController extends Controller
         return response()->json([], Response::HTTP_OK);
     }
 
-    /**
-     * @param ProductGetDataRequest $request
-     * @param int $id
-     * @return JsonResponse
-     */
     public function getData(int $id, ProductGetDataRequest $request): JsonResponse
     {
         $data = $this->productService->getSellersData($id);
@@ -71,10 +51,6 @@ class ProductController extends Controller
             ->setStatusCode(Response::HTTP_OK);
     }
 
-    /**
-     * @param ProductBulkInsertRequest $request
-     * @return JsonResponse
-     */
     public function bulkInsert(ProductBulkInsertRequest $request): JsonResponse
     {
         $data = $request->dataValidated();

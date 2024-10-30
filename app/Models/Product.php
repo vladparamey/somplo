@@ -21,9 +21,6 @@ class Product extends Model
         'cost',
     ];
 
-    /**
-     * @return BelongsTo
-     */
     public function seller(): BelongsTo
     {
         return $this->belongsTo(Seller::class);

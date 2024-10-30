@@ -8,31 +8,19 @@ use Illuminate\Support\Collection;
 
 class ProductRepository implements ProductRepositoryInterface
 {
-    /**
-     * @param array $data
-     * @return Product
-     */
     public function setData(array $data): Product
     {
         return Product::create($data);
     }
 
-    /**
-     * @param array $data
-     * @return bool
-     */
     public function updateDataBulk(array $data): bool
     {
         return Product::whereIn('id', $data['ids'])
             ->update([
-                'cost' => $data['cost']
+                'cost' => $data['cost'],
             ]);
     }
 
-    /**
-     * @param int $sellerId
-     * @return Collection
-     */
     public function getSellersData(int $sellerId): Collection
     {
         return Product::where('seller_id', $sellerId)
@@ -42,10 +30,6 @@ class ProductRepository implements ProductRepositoryInterface
             ->get();
     }
 
-    /**
-     * @param array $data
-     * @return bool
-     */
     public function bulkInsert(array $data): bool
     {
         return Product::insert($data);

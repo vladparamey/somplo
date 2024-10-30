@@ -10,25 +10,14 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SellerController extends Controller
 {
-    /**
-     * @var SellerServiceInterface $sellerService
-     */
     private SellerServiceInterface $sellerService;
 
-    /**
-     * @param SellerServiceInterface $sellerService
-     */
     public function __construct(
         SellerServiceInterface $sellerService
-    )
-    {
+    ) {
         $this->sellerService = $sellerService;
     }
 
-    /**
-     * @param SellerSetDataRequest $request
-     * @return JsonResponse
-     */
     public function setData(SellerSetDataRequest $request): JsonResponse
     {
         $data = $request->validated();

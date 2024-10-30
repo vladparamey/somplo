@@ -23,13 +23,10 @@ class ProductGetDataRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => ['required', 'integer', 'exists:products,seller_id']
+            'id' => ['required', 'integer', 'exists:products,seller_id'],
         ];
     }
 
-    /**
-     * @return void
-     */
     protected function prepareForValidation(): void
     {
         $this->merge([

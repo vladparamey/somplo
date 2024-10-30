@@ -14,12 +14,9 @@ class Seller extends Model
      * @var string[]
      */
     protected $fillable = [
-        'seller_name'
+        'seller_name',
     ];
 
-    /**
-     * @return HasMany
-     */
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
